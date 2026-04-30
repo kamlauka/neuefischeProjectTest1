@@ -15,11 +15,17 @@ public final class PasswordValidator {
     }
 
     public static boolean containsUpperAndLower(String password) {
+        boolean hasUpper = false;
+        boolean hasLower = false;
         for (char passwordChar: password.toCharArray()) {
+
             if (Character.isLowerCase(passwordChar)) {
-                return true;
+                hasLower = true;
+            }
+            if (Character.isUpperCase(passwordChar)) {
+                hasUpper = true;
             }
         }
-        return false;
+        return hasUpper && hasLower;
     }
 }

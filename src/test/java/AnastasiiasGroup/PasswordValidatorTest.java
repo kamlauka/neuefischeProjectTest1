@@ -65,4 +65,19 @@ class PasswordValidatorTest {
         boolean result = PasswordValidator.containsUpperAndLower(password);
         assertFalse(result);
     }
+
+    @Test
+    void containsUpperAndLower_returnTrue_upperAndLowerLetters() {
+        String password = "abcdeFGHI";
+        boolean result = PasswordValidator.containsUpperAndLower(password);
+        assertTrue(result);
+    }
+
+    @Test
+    void containsUpperAndLower_returnFalse_onlyOneLetter() {
+        String password = "a2345678";
+        boolean result = PasswordValidator.containsUpperAndLower(password);
+        assertFalse(result);
+    }
+
 }
