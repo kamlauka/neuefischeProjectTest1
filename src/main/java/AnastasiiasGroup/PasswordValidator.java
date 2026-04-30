@@ -13,4 +13,13 @@ public final class PasswordValidator {
         }
         return false;
     }
+
+    public static boolean containsUpperAndLower(String password) {
+        for (char passwordChar: password.toCharArray()) {
+            if (Character.isLowerCase(passwordChar)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
