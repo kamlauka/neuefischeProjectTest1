@@ -30,4 +30,11 @@ class PasswordValidatorTest {
         boolean result = PasswordValidator.containsDigit(password);
         assertFalse(result);
     }
+
+    @Test
+    void containsDigit_returnTrue_withOneNumber() {
+        String password = "abcdefg1";
+        boolean result = PasswordValidator.containsDigit(password);
+        assertTrue(result);
+    }
 }
