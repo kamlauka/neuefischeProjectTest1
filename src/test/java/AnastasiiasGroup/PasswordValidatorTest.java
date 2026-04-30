@@ -37,4 +37,18 @@ class PasswordValidatorTest {
         boolean result = PasswordValidator.containsDigit(password);
         assertTrue(result);
     }
+
+    @Test
+    void containsDigit_returnTrue_withThreeNumbers() {
+        String password = "abcde321";
+        boolean result = PasswordValidator.containsDigit(password);
+        assertTrue(result);
+    }
+
+    @Test
+    void containsDigit_returnTrue_onlyNumbers() {
+        String password = "12345678";
+        boolean result = PasswordValidator.containsDigit(password);
+        assertTrue(result);
+    }
 }
