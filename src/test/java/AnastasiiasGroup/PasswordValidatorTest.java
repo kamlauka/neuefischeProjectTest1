@@ -21,4 +21,13 @@ class PasswordValidatorTest {
             assertTrue(PasswordValidator.hasMinLength("abcdefghi", minLength));
 
         }
+
+
+
+    @Test
+    void containsDigit_returnFalse_withoutNumber() {
+        String password = "abcdefgh";
+        boolean result = PasswordValidator.containsDigit(password);
+        assertFalse(result);
+    }
 }
