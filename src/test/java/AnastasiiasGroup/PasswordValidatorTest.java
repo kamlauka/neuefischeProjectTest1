@@ -6,26 +6,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PasswordValidatorTest {
     @Test
-        void hasMinLength_returnTrue_whenLengthIsEight() {
-            //GIVEN
-            String Password = "abcdefgh";
+        void hasMinLength() {
             int minLength = 8;
-            //WHEN
-            boolean result = PasswordValidator.hasMinLength(Password, minLength);
-            //THEN
-            assertTrue(result);
+
+            //7 chars
+            assertFalse(PasswordValidator.hasMinLength("abcdefg", minLength));
+            assertFalse(PasswordValidator.hasMinLength("", minLength));
+            assertFalse(PasswordValidator.hasMinLength(null, minLength));
+
+
+            //8 chars
+            assertTrue(PasswordValidator.hasMinLength("abcdefgh", minLength));
+            //9 chars
+            assertTrue(PasswordValidator.hasMinLength("abcdefghi", minLength));
+
         }
-
-    @Test
-        void hasMinLength_returnFalse_whenLengthIsSeven() {
-            //GIVEN
-            String Password = "abcdefg";
-            int minLength = 8;
-            //WHEN
-            boolean result = PasswordValidator.hasMinLength(Password, minLength);
-            //THEN
-            assertFalse(result);
-        }
-
-
 }
