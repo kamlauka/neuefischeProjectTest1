@@ -94,4 +94,34 @@ class PasswordValidatorTest {
         assertFalse(result);
     }
 
+    @Test
+    void isValidtests () {
+        //POSITIVE
+        assertTrue(PasswordValidator.isValid("1Goodpassword"));
+
+        // NEGATIVE
+        assertFalse(PasswordValidator.isValid("Ab1"));
+
+        // NEGATIVE
+        assertFalse(PasswordValidator.isValid("Abcdefghijk"));
+
+        // NEGATIVE
+        assertFalse(PasswordValidator.isValid("abcd12345"));
+
+        // NEGATIVE
+        assertFalse(PasswordValidator.isValid("ABCD12345"));
+
+        // NEGATIVE
+        assertFalse(PasswordValidator.isValid("123456qw"));
+
+        // NEGATIVE
+        assertFalse(PasswordValidator.isValid(null));
+
+        // NEGATIVE
+        assertFalse(PasswordValidator.isValid(null));
+
+        // NEGATIVE
+        assertFalse(PasswordValidator.isValid(""));
+    }
+
 }

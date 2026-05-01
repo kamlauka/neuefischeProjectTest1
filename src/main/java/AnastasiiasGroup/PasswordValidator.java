@@ -43,4 +43,8 @@ public final class PasswordValidator {
 
         return false;
     }
+
+    public static boolean isValid(String password) {
+        return hasMinLength(password, 8) && containsDigit(password) && containsUpperAndLower(password) && !isCommonPassword(password);
+    }
 }
