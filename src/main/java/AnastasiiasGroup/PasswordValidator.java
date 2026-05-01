@@ -1,6 +1,8 @@
 package AnastasiiasGroup;
 
+
 public final class PasswordValidator {
+
     public static boolean hasMinLength(String password, int min) {
         return password != null && password.length() >= min;
     }
@@ -27,5 +29,18 @@ public final class PasswordValidator {
             }
         }
         return hasUpper && hasLower;
+    }
+
+    public static boolean isCommonPassword(String password) {
+        String[] commonPasswordsList = {"passwort1", "qwertyui", "123456qw", "passwort2"};
+        String lowerCasePassword = password.trim().toLowerCase();
+
+        for (String passwordFromTheList : commonPasswordsList) {
+            if (passwordFromTheList.equals(lowerCasePassword)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

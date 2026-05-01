@@ -80,4 +80,18 @@ class PasswordValidatorTest {
         assertFalse(result);
     }
 
+    @Test
+    void isCommonPassword_returnTrue_passwordInListe () {
+        String password = "Passwort1";
+        boolean result = PasswordValidator.isCommonPassword(password);
+        assertTrue(result);
+    }
+
+    @Test
+    void isCommonPassword_returnFalse_passwordNotInListe () {
+        String password = "VeryHardPassword";
+        boolean result = PasswordValidator.isCommonPassword(password);
+        assertFalse(result);
+    }
+
 }
