@@ -47,4 +47,15 @@ public final class PasswordValidator {
     public static boolean isValid(String password) {
         return hasMinLength(password, 8) && containsDigit(password) && containsUpperAndLower(password) && !isCommonPassword(password);
     }
+
+    public static boolean containsSpecialChar(String password) {
+        String specialChars = "!@#$%&*()-_+=?.,;:";
+
+        for(char passwordChar : password.toCharArray()) {
+            if (specialChars.contains(String.valueOf(passwordChar))) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
