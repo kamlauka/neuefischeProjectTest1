@@ -95,6 +95,21 @@ class PasswordValidatorTest {
     }
 
     @Test
+    void containsSpecialChar_returnTrue_oneSpecialChar () {
+        assertTrue(PasswordValidator.containsSpecialChar("1Goodpassword#"));
+    }
+
+    @Test
+    void containsSpecialChar_returnTrue_SpecialChars () {
+        assertTrue(PasswordValidator.containsSpecialChar("%1Goodpa&&ssword"));
+    }
+
+    @Test
+    void containsSpecialChar_returnFalse_withoutSpecialChar () {
+        assertFalse(PasswordValidator.containsSpecialChar("88Goodpassword"));
+    }
+
+    @Test
     void isValidtests () {
         //POSITIVE
         assertTrue(PasswordValidator.isValid("1Goodpassword"));
