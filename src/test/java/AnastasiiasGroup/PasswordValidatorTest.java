@@ -112,7 +112,10 @@ class PasswordValidatorTest {
     @Test
     void isValidtests () {
         //POSITIVE
-        assertTrue(PasswordValidator.isValid("1Goodpassword"));
+        assertTrue(PasswordValidator.isValid("1Goodpassword!"));
+
+        //NEGATIVE
+        assertFalse(PasswordValidator.isValid("1Goodpassword"));
 
         // NEGATIVE
         assertFalse(PasswordValidator.isValid("Ab1"));
@@ -133,10 +136,14 @@ class PasswordValidatorTest {
         assertFalse(PasswordValidator.isValid(null));
 
         // NEGATIVE
-        assertFalse(PasswordValidator.isValid(null));
-
-        // NEGATIVE
         assertFalse(PasswordValidator.isValid(""));
+    }
+
+    @Test
+    void generateSecurePassword_returnTrue_whenValid () {
+        String generated = PasswordValidator.generateSecurePassword(8, "@#$%");
+        System.out.println("New password: " + generated);
+        assertTrue(PasswordValidator.isValid(generated));
     }
 
 }
